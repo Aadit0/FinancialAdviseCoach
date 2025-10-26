@@ -23,6 +23,7 @@ function App() {
         data.members.map((member, i) => (
           <p key={i}>{member}</p>
         ))
+        
       )}
     </div>
   )
