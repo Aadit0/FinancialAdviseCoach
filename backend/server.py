@@ -34,7 +34,7 @@ chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "What can you tell me about this data: ".join(f"{k}:{v}" for k, v in monthly_expenses.items()),
+            "content": "Give financial advice based on this data: ".join(f"{k}:{v}" for k, v in monthly_expenses.items()),
         }
     ],
     model="llama-3.3-70b-versatile",
