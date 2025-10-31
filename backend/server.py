@@ -24,20 +24,25 @@ client = Groq(
 )
 
 monthly_expenses = {
-    "rent": 0,
+    "rent": 500,
     "home insurance": 0,
-    "car insurance": 0,
+    "car insurance": 250,
     "transportation": 0,
+    "income": 3500
 }
+
+goal = "Buy a nice car"
 
 chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "Give financial advice based on this data: ".join(f"{k}:{v}" for k, v in monthly_expenses.items()),
+            "content": "Hi, I would like to " + goal +" Give financial advice based on this data: ".join(f"{k}:{v}" for k, v in monthly_expenses.items()),
         }
     ],
     model="llama-3.3-70b-versatile",
 )
 
-print(chat_completion.choices[0].message.content)
+response = chat_completion.choices[0].message.content
+
+print(response)
